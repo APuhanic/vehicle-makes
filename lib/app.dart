@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vehicle_makes/data/constants/app_colors.dart';
+import 'package:vehicle_makes/presentation/vehicle_makes/screens/vehicle_makes_screens.dart';
 
 class CarApp extends StatelessWidget {
   const CarApp({super.key});
@@ -14,13 +15,16 @@ class CarApp extends StatelessWidget {
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarDividerColor: AppColors.white,
     ));
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+      title: 'Vehicle Makes and Models',
+      home: const VehicleMakesScreen(),
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.background,
+        fontFamily: 'Poppins',
       ),
+      builder: (context, child) => SafeArea(child: child!),
     );
   }
 }

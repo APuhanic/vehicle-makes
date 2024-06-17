@@ -6,17 +6,14 @@ import 'package:vehicle_makes/data/constants/endpoints.dart';
 
 @module
 abstract class AppMopule {
-  /*@singleton
-  Connectivity get connectivity => Connectivity();*/
-
   @singleton
   Dio get dio => Dio(
-        BaseOptions(
-          baseUrl: Endpoints.baseUrl,
-        ),
-      )..interceptors.add(PrettyDioLogger(
-          error: true,
-          compact: true,
-          maxWidth: 90,
-        ));
+        BaseOptions(baseUrl: Endpoints.baseUrl),
+      )..interceptors.add(
+          PrettyDioLogger(
+            error: true,
+            compact: true,
+            maxWidth: 90,
+          ),
+        );
 }

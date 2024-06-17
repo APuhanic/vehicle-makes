@@ -7,10 +7,8 @@ class DioClient {
 
   DioClient(this._dio);
 
-  Future<Response> post(String path, dynamic data) async => _dio.post(
-        path,
-        data: data,
-      );
+  Future<Response> post(String path, dynamic data) async =>
+      _dio.post(path, data: data);
   Future<Response> get(String path) async => _dio.get(path);
 
   Future<Response> put(String path, dynamic data) async =>
@@ -19,8 +17,6 @@ class DioClient {
   Future<Response> delete(String path) async =>
       _dio.delete(path, options: Options());
 
-  Future<Response> patch(String path, dynamic data) async => _dio.patch(
-        path,
-        data: data,
-      );
+  Future<Response> patch(String path, dynamic data) async =>
+      _dio.patch(path, data: data);
 }
