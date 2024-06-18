@@ -14,7 +14,7 @@ part 'auth_bloc.freezed.dart';
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authRepository, this.storage)
-      : super(const _Unauthenticated()) {
+      : super(const Unauthenticated()) {
     on<_Login>(_onLogin);
   }
   final SecureStorage storage;
