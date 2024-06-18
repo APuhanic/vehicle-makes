@@ -20,9 +20,8 @@ VehicleMake _$VehicleMakeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VehicleMake {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get abrv => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $VehicleMakeCopyWith<$Res> {
           VehicleMake value, $Res Function(VehicleMake) then) =
       _$VehicleMakeCopyWithImpl<$Res, VehicleMake>;
   @useResult
-  $Res call({String id, String name, String abrv});
+  $Res call({int id, String name});
 }
 
 /// @nodoc
@@ -54,20 +53,15 @@ class _$VehicleMakeCopyWithImpl<$Res, $Val extends VehicleMake>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abrv = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      abrv: null == abrv
-          ? _value.abrv
-          : abrv // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +75,7 @@ abstract class _$$VehicleMakeImplCopyWith<$Res>
       __$$VehicleMakeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String abrv});
+  $Res call({int id, String name});
 }
 
 /// @nodoc
@@ -97,20 +91,15 @@ class __$$VehicleMakeImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abrv = null,
   }) {
     return _then(_$VehicleMakeImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      abrv: null == abrv
-          ? _value.abrv
-          : abrv // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -119,22 +108,19 @@ class __$$VehicleMakeImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$VehicleMakeImpl implements _VehicleMake {
-  const _$VehicleMakeImpl(
-      {required this.id, required this.name, required this.abrv});
+  const _$VehicleMakeImpl({required this.id, required this.name});
 
   factory _$VehicleMakeImpl.fromJson(Map<String, dynamic> json) =>
       _$$VehicleMakeImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
-  @override
-  final String abrv;
 
   @override
   String toString() {
-    return 'VehicleMake(id: $id, name: $name, abrv: $abrv)';
+    return 'VehicleMake(id: $id, name: $name)';
   }
 
   @override
@@ -143,13 +129,12 @@ class _$VehicleMakeImpl implements _VehicleMake {
         (other.runtimeType == runtimeType &&
             other is _$VehicleMakeImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.abrv, abrv) || other.abrv == abrv));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, abrv);
+  int get hashCode => Object.hash(runtimeType, id, name);
 
   @JsonKey(ignore: true)
   @override
@@ -167,19 +152,15 @@ class _$VehicleMakeImpl implements _VehicleMake {
 
 abstract class _VehicleMake implements VehicleMake {
   const factory _VehicleMake(
-      {required final String id,
-      required final String name,
-      required final String abrv}) = _$VehicleMakeImpl;
+      {required final int id, required final String name}) = _$VehicleMakeImpl;
 
   factory _VehicleMake.fromJson(Map<String, dynamic> json) =
       _$VehicleMakeImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
-  @override
-  String get abrv;
   @override
   @JsonKey(ignore: true)
   _$$VehicleMakeImplCopyWith<_$VehicleMakeImpl> get copyWith =>

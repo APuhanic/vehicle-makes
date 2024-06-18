@@ -16,11 +16,13 @@ import 'package:logger/logger.dart' as _i5;
 
 import '../data/api_clients/car_api.dart' as _i9;
 import '../data/api_clients/dio_client.dart' as _i7;
-import '../data/bloc/auth_bloc.dart' as _i11;
+import '../data/bloc/auth_bloc.dart' as _i13;
 import '../data/storage/secure_storage.dart' as _i8;
 import '../domain/bloc_observer/global_bloc_observer.dart' as _i6;
-import '../domain/modules/app_module.dart' as _i12;
-import '../domain/repositories/auth_repository.dart' as _i10;
+import '../domain/modules/app_module.dart' as _i14;
+import '../domain/repositories/auth_repository.dart' as _i11;
+import '../domain/repositories/vehicle_makes_repository.dart' as _i10;
+import '../presentation/vehicle_makes/bloc/vehicle_makes_bloc.dart' as _i12;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -43,14 +45,18 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i8.SecureStorage>(
         () => _i8.SecureStorage(gh<_i4.FlutterSecureStorage>()));
     gh.lazySingleton<_i9.CarApi>(() => _i9.CarApi(gh<_i7.DioClient>()));
-    gh.singleton<_i10.AuthRepository>(
-        () => _i10.AuthRepository(carApi: gh<_i9.CarApi>()));
-    gh.factory<_i11.AuthBloc>(() => _i11.AuthBloc(
-          gh<_i10.AuthRepository>(),
+    gh.lazySingleton<_i10.VehicleMakesRepository>(
+        () => _i10.VehicleMakesRepository(carApi: gh<_i9.CarApi>()));
+    gh.singleton<_i11.AuthRepository>(
+        () => _i11.AuthRepository(carApi: gh<_i9.CarApi>()));
+    gh.factory<_i12.VehicleMakesBloc>(
+        () => _i12.VehicleMakesBloc(gh<_i10.VehicleMakesRepository>()));
+    gh.factory<_i13.AuthBloc>(() => _i13.AuthBloc(
+          gh<_i11.AuthRepository>(),
           gh<_i8.SecureStorage>(),
         ));
     return this;
   }
 }
 
-class _$AppMopule extends _i12.AppMopule {}
+class _$AppMopule extends _i14.AppMopule {}
