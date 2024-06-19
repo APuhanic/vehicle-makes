@@ -10,16 +10,10 @@ class VehicleMakesRepository {
 
   Future<List<VehicleMake>> getVehicleMakes() async {
     final response = await carApi.getMakes();
-
-    // Assuming the response.data is a map that contains the "data" list
     final data = response.data as Map<String, dynamic>;
-
-    // Extract the list of vehicle makes from the "data" field
     final List<dynamic> vehicleMakesList = data['data'];
-
-    // Map each item in the list to a VehicleMake object
     return vehicleMakesList
-        .map((e) => VehicleMake.fromJson(e as Map<String, dynamic>))
+        .map((vehicle) => VehicleMake.fromJson(vehicle as Map<String, dynamic>))
         .toList();
   }
 }

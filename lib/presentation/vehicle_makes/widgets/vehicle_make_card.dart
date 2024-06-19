@@ -12,29 +12,35 @@ class VehicleMakeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      height: 120,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            vehicleMake.id.toString(),
-            style: AppTextStyle.titleSmall,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          '/vehicleMakeDetails',
+          arguments: vehicleMake,
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        height: 50,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              vehicleMake.id.toString(),
+              style: AppTextStyle.titleSmall,
+            ),
+            const SizedBox(width: 16),
+            Text(
               vehicleMake.name,
               style: AppTextStyle.titleSmall,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

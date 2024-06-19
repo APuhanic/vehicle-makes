@@ -8,7 +8,6 @@ abstract class VehicleModel with _$VehicleModel {
   const factory VehicleModel({
     required String id,
     required String name,
-    required String abrv,
     required String makeId,
   }) = _VehicleModel;
 

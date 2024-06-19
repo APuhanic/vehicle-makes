@@ -22,7 +22,6 @@ VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) {
 mixin _$VehicleModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get abrv => throw _privateConstructorUsedError;
   String get makeId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +36,7 @@ abstract class $VehicleModelCopyWith<$Res> {
           VehicleModel value, $Res Function(VehicleModel) then) =
       _$VehicleModelCopyWithImpl<$Res, VehicleModel>;
   @useResult
-  $Res call({String id, String name, String abrv, String makeId});
+  $Res call({String id, String name, String makeId});
 }
 
 /// @nodoc
@@ -55,7 +54,6 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abrv = null,
     Object? makeId = null,
   }) {
     return _then(_value.copyWith(
@@ -66,10 +64,6 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      abrv: null == abrv
-          ? _value.abrv
-          : abrv // ignore: cast_nullable_to_non_nullable
               as String,
       makeId: null == makeId
           ? _value.makeId
@@ -87,7 +81,7 @@ abstract class _$$VehicleModelImplCopyWith<$Res>
       __$$VehicleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String abrv, String makeId});
+  $Res call({String id, String name, String makeId});
 }
 
 /// @nodoc
@@ -103,7 +97,6 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abrv = null,
     Object? makeId = null,
   }) {
     return _then(_$VehicleModelImpl(
@@ -114,10 +107,6 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      abrv: null == abrv
-          ? _value.abrv
-          : abrv // ignore: cast_nullable_to_non_nullable
               as String,
       makeId: null == makeId
           ? _value.makeId
@@ -131,10 +120,7 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VehicleModelImpl implements _VehicleModel {
   const _$VehicleModelImpl(
-      {required this.id,
-      required this.name,
-      required this.abrv,
-      required this.makeId});
+      {required this.id, required this.name, required this.makeId});
 
   factory _$VehicleModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$VehicleModelImplFromJson(json);
@@ -144,13 +130,11 @@ class _$VehicleModelImpl implements _VehicleModel {
   @override
   final String name;
   @override
-  final String abrv;
-  @override
   final String makeId;
 
   @override
   String toString() {
-    return 'VehicleModel(id: $id, name: $name, abrv: $abrv, makeId: $makeId)';
+    return 'VehicleModel(id: $id, name: $name, makeId: $makeId)';
   }
 
   @override
@@ -160,13 +144,12 @@ class _$VehicleModelImpl implements _VehicleModel {
             other is _$VehicleModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.abrv, abrv) || other.abrv == abrv) &&
             (identical(other.makeId, makeId) || other.makeId == makeId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, abrv, makeId);
+  int get hashCode => Object.hash(runtimeType, id, name, makeId);
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +169,6 @@ abstract class _VehicleModel implements VehicleModel {
   const factory _VehicleModel(
       {required final String id,
       required final String name,
-      required final String abrv,
       required final String makeId}) = _$VehicleModelImpl;
 
   factory _VehicleModel.fromJson(Map<String, dynamic> json) =
@@ -196,8 +178,6 @@ abstract class _VehicleModel implements VehicleModel {
   String get id;
   @override
   String get name;
-  @override
-  String get abrv;
   @override
   String get makeId;
   @override
