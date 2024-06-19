@@ -20,9 +20,10 @@ VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VehicleModel {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get makeId => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
+  String get make_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $VehicleModelCopyWith<$Res> {
           VehicleModel value, $Res Function(VehicleModel) then) =
       _$VehicleModelCopyWithImpl<$Res, VehicleModel>;
   @useResult
-  $Res call({String id, String name, String makeId});
+  $Res call({int id, String name, String make_id});
 }
 
 /// @nodoc
@@ -54,20 +55,20 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? makeId = null,
+    Object? make_id = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      makeId: null == makeId
-          ? _value.makeId
-          : makeId // ignore: cast_nullable_to_non_nullable
+      make_id: null == make_id
+          ? _value.make_id
+          : make_id // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +82,7 @@ abstract class _$$VehicleModelImplCopyWith<$Res>
       __$$VehicleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String makeId});
+  $Res call({int id, String name, String make_id});
 }
 
 /// @nodoc
@@ -97,20 +98,20 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? makeId = null,
+    Object? make_id = null,
   }) {
     return _then(_$VehicleModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      makeId: null == makeId
-          ? _value.makeId
-          : makeId // ignore: cast_nullable_to_non_nullable
+      make_id: null == make_id
+          ? _value.make_id
+          : make_id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -120,21 +121,22 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VehicleModelImpl implements _VehicleModel {
   const _$VehicleModelImpl(
-      {required this.id, required this.name, required this.makeId});
+      {required this.id, required this.name, required this.make_id});
 
   factory _$VehicleModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$VehicleModelImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
+// ignore: non_constant_identifier_names
   @override
-  final String makeId;
+  final String make_id;
 
   @override
   String toString() {
-    return 'VehicleModel(id: $id, name: $name, makeId: $makeId)';
+    return 'VehicleModel(id: $id, name: $name, make_id: $make_id)';
   }
 
   @override
@@ -144,12 +146,12 @@ class _$VehicleModelImpl implements _VehicleModel {
             other is _$VehicleModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.makeId, makeId) || other.makeId == makeId));
+            (identical(other.make_id, make_id) || other.make_id == make_id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, makeId);
+  int get hashCode => Object.hash(runtimeType, id, name, make_id);
 
   @JsonKey(ignore: true)
   @override
@@ -167,19 +169,19 @@ class _$VehicleModelImpl implements _VehicleModel {
 
 abstract class _VehicleModel implements VehicleModel {
   const factory _VehicleModel(
-      {required final String id,
+      {required final int id,
       required final String name,
-      required final String makeId}) = _$VehicleModelImpl;
+      required final String make_id}) = _$VehicleModelImpl;
 
   factory _VehicleModel.fromJson(Map<String, dynamic> json) =
       _$VehicleModelImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
-  @override
-  String get makeId;
+  @override // ignore: non_constant_identifier_names
+  String get make_id;
   @override
   @JsonKey(ignore: true)
   _$$VehicleModelImplCopyWith<_$VehicleModelImpl> get copyWith =>

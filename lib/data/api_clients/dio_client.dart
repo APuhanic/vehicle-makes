@@ -9,7 +9,12 @@ class DioClient {
 
   Future<Response> post(String path, dynamic data) async =>
       _dio.post(path, data: data);
-  Future<Response> get(String path) async => _dio.get(path);
+  Future<Response> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    return _dio.get(path, queryParameters: queryParameters);
+  }
 
   Future<Response> put(String path, dynamic data) async =>
       _dio.put(path, data: data);

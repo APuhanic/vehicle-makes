@@ -6,9 +6,10 @@ part 'vehicle_model.g.dart';
 @freezed
 abstract class VehicleModel with _$VehicleModel {
   const factory VehicleModel({
-    required String id,
+    required int id,
     required String name,
-    required String makeId,
+    // ignore: non_constant_identifier_names
+    required String make_id,
   }) = _VehicleModel;
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) =>
