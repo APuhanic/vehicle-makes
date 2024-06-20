@@ -30,10 +30,6 @@ class VehicleMakeCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              vehicleMake.id.toString(),
-              style: AppTextStyle.titleSmall,
-            ),
             const SizedBox(width: 16),
             Text(
               vehicleMake.name,

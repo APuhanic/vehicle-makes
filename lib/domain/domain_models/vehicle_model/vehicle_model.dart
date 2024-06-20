@@ -9,7 +9,7 @@ abstract class VehicleModel with _$VehicleModel {
     required int id,
     required String name,
     // ignore: non_constant_identifier_names
-    required String make_id,
+    required int make_id,
   }) = _VehicleModel;
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) =>

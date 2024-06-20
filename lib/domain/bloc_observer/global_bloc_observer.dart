@@ -14,11 +14,11 @@ class GlobalBlocObserver extends BlocObserver {
     logger.d(event.toString());
   }
 
-  @override
+  /*@override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     logger.d(transition.toString());
-  }
+  }*/
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {

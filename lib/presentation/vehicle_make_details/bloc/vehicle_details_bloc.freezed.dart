@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'vehicle_models_bloc.dart';
+part of 'vehicle_details_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -20,32 +20,38 @@ mixin _$VehicleModelsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic makeId) fetchVehicleModels,
+    required TResult Function(dynamic makeId, int year) filterVehicleModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(dynamic makeId)? fetchVehicleModels,
+    TResult? Function(dynamic makeId, int year)? filterVehicleModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic makeId)? fetchVehicleModels,
+    TResult Function(dynamic makeId, int year)? filterVehicleModels,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchVehicleModels value) fetchVehicleModels,
+    required TResult Function(_FilterVehicleModels value) filterVehicleModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult? Function(_FilterVehicleModels value)? filterVehicleModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult Function(_FilterVehicleModels value)? filterVehicleModels,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic makeId) fetchVehicleModels,
+    required TResult Function(dynamic makeId, int year) filterVehicleModels,
   }) {
     return fetchVehicleModels(makeId);
   }
@@ -162,6 +169,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(dynamic makeId)? fetchVehicleModels,
+    TResult? Function(dynamic makeId, int year)? filterVehicleModels,
   }) {
     return fetchVehicleModels?.call(makeId);
   }
@@ -170,6 +178,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic makeId)? fetchVehicleModels,
+    TResult Function(dynamic makeId, int year)? filterVehicleModels,
     required TResult orElse(),
   }) {
     if (fetchVehicleModels != null) {
@@ -182,6 +191,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchVehicleModels value) fetchVehicleModels,
+    required TResult Function(_FilterVehicleModels value) filterVehicleModels,
   }) {
     return fetchVehicleModels(this);
   }
@@ -190,6 +200,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult? Function(_FilterVehicleModels value)? filterVehicleModels,
   }) {
     return fetchVehicleModels?.call(this);
   }
@@ -198,6 +209,7 @@ class _$FetchVehicleModelsImpl implements _FetchVehicleModels {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult Function(_FilterVehicleModels value)? filterVehicleModels,
     required TResult orElse(),
   }) {
     if (fetchVehicleModels != null) {
@@ -220,12 +232,159 @@ abstract class _FetchVehicleModels implements VehicleModelsEvent {
 }
 
 /// @nodoc
-mixin _$VehicleModelsState {
+abstract class _$$FilterVehicleModelsImplCopyWith<$Res>
+    implements $VehicleModelsEventCopyWith<$Res> {
+  factory _$$FilterVehicleModelsImplCopyWith(_$FilterVehicleModelsImpl value,
+          $Res Function(_$FilterVehicleModelsImpl) then) =
+      __$$FilterVehicleModelsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({dynamic makeId, int year});
+}
+
+/// @nodoc
+class __$$FilterVehicleModelsImplCopyWithImpl<$Res>
+    extends _$VehicleModelsEventCopyWithImpl<$Res, _$FilterVehicleModelsImpl>
+    implements _$$FilterVehicleModelsImplCopyWith<$Res> {
+  __$$FilterVehicleModelsImplCopyWithImpl(_$FilterVehicleModelsImpl _value,
+      $Res Function(_$FilterVehicleModelsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? makeId = freezed,
+    Object? year = null,
+  }) {
+    return _then(_$FilterVehicleModelsImpl(
+      freezed == makeId ? _value.makeId! : makeId,
+      null == year
+          ? _value.year
+          : year // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterVehicleModelsImpl implements _FilterVehicleModels {
+  const _$FilterVehicleModelsImpl(this.makeId, this.year);
+
+  @override
+  final dynamic makeId;
+  @override
+  final int year;
+
+  @override
+  String toString() {
+    return 'VehicleModelsEvent.filterVehicleModels(makeId: $makeId, year: $year)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterVehicleModelsImpl &&
+            const DeepCollectionEquality().equals(other.makeId, makeId) &&
+            (identical(other.year, year) || other.year == year));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(makeId), year);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterVehicleModelsImplCopyWith<_$FilterVehicleModelsImpl> get copyWith =>
+      __$$FilterVehicleModelsImplCopyWithImpl<_$FilterVehicleModelsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic makeId) fetchVehicleModels,
+    required TResult Function(dynamic makeId, int year) filterVehicleModels,
+  }) {
+    return filterVehicleModels(makeId, year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(dynamic makeId)? fetchVehicleModels,
+    TResult? Function(dynamic makeId, int year)? filterVehicleModels,
+  }) {
+    return filterVehicleModels?.call(makeId, year);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic makeId)? fetchVehicleModels,
+    TResult Function(dynamic makeId, int year)? filterVehicleModels,
+    required TResult orElse(),
+  }) {
+    if (filterVehicleModels != null) {
+      return filterVehicleModels(makeId, year);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchVehicleModels value) fetchVehicleModels,
+    required TResult Function(_FilterVehicleModels value) filterVehicleModels,
+  }) {
+    return filterVehicleModels(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult? Function(_FilterVehicleModels value)? filterVehicleModels,
+  }) {
+    return filterVehicleModels?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchVehicleModels value)? fetchVehicleModels,
+    TResult Function(_FilterVehicleModels value)? filterVehicleModels,
+    required TResult orElse(),
+  }) {
+    if (filterVehicleModels != null) {
+      return filterVehicleModels(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterVehicleModels implements VehicleModelsEvent {
+  const factory _FilterVehicleModels(final dynamic makeId, final int year) =
+      _$FilterVehicleModelsImpl;
+
+  @override
+  dynamic get makeId;
+  int get year;
+  @override
+  @JsonKey(ignore: true)
+  _$$FilterVehicleModelsImplCopyWith<_$FilterVehicleModelsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$VehicleDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -234,6 +393,7 @@ mixin _$VehicleModelsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -242,6 +402,7 @@ mixin _$VehicleModelsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -251,6 +412,7 @@ mixin _$VehicleModelsState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -259,6 +421,7 @@ mixin _$VehicleModelsState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -267,6 +430,7 @@ mixin _$VehicleModelsState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -274,16 +438,16 @@ mixin _$VehicleModelsState {
 }
 
 /// @nodoc
-abstract class $VehicleModelsStateCopyWith<$Res> {
-  factory $VehicleModelsStateCopyWith(
-          VehicleModelsState value, $Res Function(VehicleModelsState) then) =
-      _$VehicleModelsStateCopyWithImpl<$Res, VehicleModelsState>;
+abstract class $VehicleDetailsStateCopyWith<$Res> {
+  factory $VehicleDetailsStateCopyWith(
+          VehicleDetailsState value, $Res Function(VehicleDetailsState) then) =
+      _$VehicleDetailsStateCopyWithImpl<$Res, VehicleDetailsState>;
 }
 
 /// @nodoc
-class _$VehicleModelsStateCopyWithImpl<$Res, $Val extends VehicleModelsState>
-    implements $VehicleModelsStateCopyWith<$Res> {
-  _$VehicleModelsStateCopyWithImpl(this._value, this._then);
+class _$VehicleDetailsStateCopyWithImpl<$Res, $Val extends VehicleDetailsState>
+    implements $VehicleDetailsStateCopyWith<$Res> {
+  _$VehicleDetailsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -300,7 +464,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$VehicleModelsStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$VehicleDetailsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -314,7 +478,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'VehicleModelsState.initial()';
+    return 'VehicleDetailsState.initial()';
   }
 
   @override
@@ -332,6 +496,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -343,6 +508,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -354,6 +520,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -369,6 +536,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -380,6 +548,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -391,6 +560,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -401,7 +571,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements VehicleModelsState {
+abstract class _Initial implements VehicleDetailsState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -414,7 +584,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$VehicleModelsStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$VehicleDetailsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -428,7 +598,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'VehicleModelsState.loading()';
+    return 'VehicleDetailsState.loading()';
   }
 
   @override
@@ -446,6 +616,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -457,6 +628,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -468,6 +640,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -483,6 +656,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -494,6 +668,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -505,6 +680,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -515,7 +691,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements VehicleModelsState {
+abstract class _Loading implements VehicleDetailsState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -530,7 +706,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$VehicleModelsStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$VehicleDetailsStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
@@ -566,7 +742,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   String toString() {
-    return 'VehicleModelsState.loaded(vehicleModels: $vehicleModels)';
+    return 'VehicleDetailsState.loaded(vehicleModels: $vehicleModels)';
   }
 
   @override
@@ -594,6 +770,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
     return loaded(vehicleModels);
@@ -605,6 +782,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
     return loaded?.call(vehicleModels);
@@ -616,6 +794,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -631,6 +810,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
   }) {
     return loaded(this);
@@ -642,6 +822,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
   }) {
     return loaded?.call(this);
@@ -653,6 +834,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -663,13 +845,133 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements VehicleModelsState {
+abstract class _Loaded implements VehicleDetailsState {
   const factory _Loaded(final List<VehicleModel> vehicleModels) = _$LoadedImpl;
 
   List<VehicleModel> get vehicleModels;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$VehicleDetailsStateCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyImpl implements _Empty {
+  const _$EmptyImpl();
+
+  @override
+  String toString() {
+    return 'VehicleDetailsState.empty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
+    TResult? Function(String message)? error,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_Error value) error,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
+    TResult? Function(_Error value)? error,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty implements VehicleDetailsState {
+  const factory _Empty() = _$EmptyImpl;
 }
 
 /// @nodoc
@@ -683,7 +985,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$VehicleModelsStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$VehicleDetailsStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -713,7 +1015,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'VehicleModelsState.error(message: $message)';
+    return 'VehicleDetailsState.error(message: $message)';
   }
 
   @override
@@ -739,6 +1041,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<VehicleModel> vehicleModels) loaded,
+    required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -750,6 +1053,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -761,6 +1065,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<VehicleModel> vehicleModels)? loaded,
+    TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -776,6 +1081,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -787,6 +1093,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -798,6 +1105,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -808,7 +1116,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements VehicleModelsState {
+abstract class _Error implements VehicleDetailsState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;

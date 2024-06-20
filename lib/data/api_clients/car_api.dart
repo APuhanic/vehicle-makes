@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vehicle_makes/data/api_clients/dio_client.dart';
@@ -24,12 +22,15 @@ class CarApi {
     return _dioClient.get(Endpoints.makes);
   }
 
-  Future<Response> getModels(makeId) async {
+  // Car API je limitiran, te neprihvaća JSON query zahtjeve točno, stoga je po
+  // potrebno napraviti workaround kako bi se dobili podaci koji su potrebni.
+  // Trenutno će se postaviti da je godina proizvodnje 2015, te da se ručno mijenja
+  // tražena godina kroz interface
+  Future<Response> getModels(makeId, int? year) async {
     final queryParameters = {
       'make_id': makeId,
-      'year': 2020,
+      'year': year ?? 2015,
     };
-    // TODO: Figure out why json field query doesn't work
     return _dioClient.get(Endpoints.models, queryParameters: queryParameters);
   }
 }

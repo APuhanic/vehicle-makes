@@ -7,13 +7,12 @@ class VehicleDetailsRepository {
   VehicleDetailsRepository({required this.carApi});
   final CarApi carApi;
 
-  Future<List<VehicleModel>> getVehicleModels(int makeId) async {
-    final response = await carApi.getModels(makeId);
+  Future<List<VehicleModel>> getVehicleModels(int makeId, {int? year}) async {
+    final response = await carApi.getModels(makeId, year);
     final data = response.data as Map<String, dynamic>;
-    final List<dynamic> vehicleMakesList = data['data'];
-    return vehicleMakesList
-        .map(
-            (vehicle) => VehicleModel.fromJson(vehicle as Map<String, dynamic>))
+    final List<dynamic> vehicleModelsList = data['data'];
+    return vehicleModelsList
+        .map((model) => VehicleModel.fromJson(model as Map<String, dynamic>))
         .toList();
   }
 }

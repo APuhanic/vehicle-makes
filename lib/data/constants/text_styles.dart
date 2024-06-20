@@ -38,4 +38,9 @@ class AppTextStyle {
     color: AppColors.black,
     fontWeight: FontWeight.bold,
   );
+
+  static TextStyle nameText = const TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+  );
 }

@@ -23,7 +23,7 @@ mixin _$VehicleModel {
   int get id => throw _privateConstructorUsedError;
   String get name =>
       throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
-  String get make_id => throw _privateConstructorUsedError;
+  int get make_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $VehicleModelCopyWith<$Res> {
           VehicleModel value, $Res Function(VehicleModel) then) =
       _$VehicleModelCopyWithImpl<$Res, VehicleModel>;
   @useResult
-  $Res call({int id, String name, String make_id});
+  $Res call({int id, String name, int make_id});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
       make_id: null == make_id
           ? _value.make_id
           : make_id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$VehicleModelImplCopyWith<$Res>
       __$$VehicleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String make_id});
+  $Res call({int id, String name, int make_id});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$VehicleModelImplCopyWithImpl<$Res>
       make_id: null == make_id
           ? _value.make_id
           : make_id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -132,7 +132,7 @@ class _$VehicleModelImpl implements _VehicleModel {
   final String name;
 // ignore: non_constant_identifier_names
   @override
-  final String make_id;
+  final int make_id;
 
   @override
   String toString() {
@@ -171,7 +171,7 @@ abstract class _VehicleModel implements VehicleModel {
   const factory _VehicleModel(
       {required final int id,
       required final String name,
-      required final String make_id}) = _$VehicleModelImpl;
+      required final int make_id}) = _$VehicleModelImpl;
 
   factory _VehicleModel.fromJson(Map<String, dynamic> json) =
       _$VehicleModelImpl.fromJson;
@@ -181,7 +181,7 @@ abstract class _VehicleModel implements VehicleModel {
   @override
   String get name;
   @override // ignore: non_constant_identifier_names
-  String get make_id;
+  int get make_id;
   @override
   @JsonKey(ignore: true)
   _$$VehicleModelImplCopyWith<_$VehicleModelImpl> get copyWith =>
