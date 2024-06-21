@@ -14,6 +14,7 @@ part 'vehicle_makes_bloc.freezed.dart';
 class VehicleMakesBloc extends Bloc<VehicleMakesEvent, VehicleMakesState> {
   VehicleMakesBloc(this._vehicleMakesRepository) : super(const _Initial()) {
     on<_FetchVehicleMakes>(_onFetchVehiclesMakes);
+    on<_FilterVehicleMakes>(_onFilterVehicleMakes);
   }
 
   final VehicleMakesRepository _vehicleMakesRepository;
@@ -23,6 +24,18 @@ class VehicleMakesBloc extends Bloc<VehicleMakesEvent, VehicleMakesState> {
     try {
       emit(const VehicleMakesState.loading());
       final vehicleMakes = await _vehicleMakesRepository.getVehicleMakes();
+      emit(VehicleMakesState.loaded(vehicleMakes));
+    } catch (e) {
+      emit(VehicleMakesState.error(e.toString()));
+    }
+  }
+
+  Future<FutureOr<void>> _onFilterVehicleMakes(
+      _FilterVehicleMakes event, Emitter<VehicleMakesState> emit) async {
+    try {
+      emit(const VehicleMakesState.loading());
+      final vehicleMakes =
+          await _vehicleMakesRepository.searchVehicleMakes(event.query);
       emit(VehicleMakesState.loaded(vehicleMakes));
     } catch (e) {
       emit(VehicleMakesState.error(e.toString()));

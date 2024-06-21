@@ -18,13 +18,16 @@ class CarApi {
     );
   }
 
-  Future<Response> getMakes() async {
+  Future<Response> getMakes({String? search}) async {
+    if (search != null) {
+      return _dioClient.get(Endpoints.makes, queryParameters: {'make': search});
+    }
     return _dioClient.get(Endpoints.makes);
   }
 
   // Car API je limitiran, te neprihvaća JSON query zahtjeve točno, stoga je po
   // potrebno napraviti workaround kako bi se dobili podaci koji su potrebni.
-  // Trenutno će se postaviti da je godina proizvodnje 2015, te da se ručno mijenja
+  // Trenutno je postavljeno da je godina proizvodnje 2015, te se ručno mijenja
   // tražena godina kroz interface
   Future<Response> getModels(makeId, int? year) async {
     final queryParameters = {

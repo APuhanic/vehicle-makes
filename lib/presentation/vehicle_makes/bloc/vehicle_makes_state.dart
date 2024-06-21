@@ -6,5 +6,7 @@ class VehicleMakesState with _$VehicleMakesState {
   const factory VehicleMakesState.loading() = _Loading;
   const factory VehicleMakesState.loaded(List<VehicleMake> vehicleMakes) =
       _Loaded;
+  const factory VehicleMakesState.empty() = _Empty;
+
   const factory VehicleMakesState.error(String message) = _Error;
 }

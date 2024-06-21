@@ -7,7 +7,7 @@ part 'filter_chip_cubit.freezed.dart';
 
 @injectable
 class FilterChipCubit extends Cubit<FilterChipState> {
-  FilterChipCubit() : super(const FilterChipState.initial());
+  FilterChipCubit() : super(const FilterChipState.selected(2015));
 
   void selectYear(int year) => emit(FilterChipState.selected(year));
 }

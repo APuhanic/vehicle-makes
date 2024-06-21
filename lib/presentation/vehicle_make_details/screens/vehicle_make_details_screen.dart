@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicle_makes/data/constants/app_colors.dart';
 import 'package:vehicle_makes/data/constants/text_styles.dart';
 import 'package:vehicle_makes/domain/domain_models/vehicle_make/vehicle_make.dart';
+import 'package:vehicle_makes/presentation/common/widgets/loading_indicator.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/bloc/vehicle_details_bloc.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/cubit/filter_chip_cubit.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/widgets/filter_chips.dart';
@@ -17,7 +18,9 @@ class VehicleMakeDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final makeDetails =
         ModalRoute.of(context)!.settings.arguments as VehicleMake;
-
+    context
+        .read<VehicleDetailsBloc>()
+        .add(VehicleModelsEvent.fetchVehicleModels(makeDetails.id));
     return Scaffold(
       body: BlocListener<FilterChipCubit, FilterChipState>(
         listener: (context, state) {
@@ -28,11 +31,7 @@ class VehicleMakeDetailsScreen extends StatelessWidget {
                   VehicleModelsEvent.filterVehicleModels(
                       makeDetails.id, selectedYear));
             },
-            orElse: () {
-              context
-                  .read<VehicleDetailsBloc>()
-                  .add(VehicleModelsEvent.fetchVehicleModels(makeDetails.id));
-            },
+            orElse: () {},
           );
         },
         child: BlocBuilder<VehicleDetailsBloc, VehicleDetailsState>(
@@ -69,7 +68,7 @@ class VehicleMakeDetailsScreen extends StatelessWidget {
                           child: Text('No models found'),
                         ),
                         orElse: () => const Center(
-                          child: CircularProgressIndicator(),
+                          child: LoadingIndicator(),
                         ),
                       ),
                     ],

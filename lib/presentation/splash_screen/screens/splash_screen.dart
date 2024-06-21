@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicle_makes/data/bloc/auth_bloc.dart';
-import 'package:vehicle_makes/data/constants/app_colors.dart';
+import 'package:vehicle_makes/presentation/common/widgets/loading_indicator.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({
@@ -23,9 +23,7 @@ class SplashScreen extends StatelessWidget {
           body: Padding(
             padding: EdgeInsets.all(16.0),
             child: Center(
-              child: CircularProgressIndicator(
-                color: AppColors.primary,
-              ),
+              child: LoadingIndicator(),
             ),
           ),
         );
