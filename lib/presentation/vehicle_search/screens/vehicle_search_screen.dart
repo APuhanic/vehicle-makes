@@ -48,7 +48,7 @@ class VehicleSearchScreen extends StatelessWidget {
                                   ),
                               loaded: (vehicleMakes) => VehicleMakesCardList(
                                   vehicleMakes: vehicleMakes),
-                              error: (message) => Center(child: Text(message)),
+                              empty: () => const Text('No vehicle makes found'),
                               orElse: () => const Text('Error'));
                         },
                       ),

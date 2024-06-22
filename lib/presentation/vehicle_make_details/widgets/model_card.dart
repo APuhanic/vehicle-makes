@@ -13,16 +13,24 @@ class ModelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: const BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-      ),
-      child: Center(
-        child: Text(
-          vehicleModel.name,
-          style: AppTextStyle.titleSmall,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          '/modelTrims',
+          arguments: vehicleModel,
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: const BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: Center(
+          child: Text(
+            vehicleModel.name,
+            style: AppTextStyle.titleSmall,
+          ),
         ),
       ),
     );

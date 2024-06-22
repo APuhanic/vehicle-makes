@@ -9,6 +9,10 @@ class VehicleDetailsRepository {
 
   Future<List<VehicleModel>> getVehicleModels(int makeId, {int? year}) async {
     final response = await carApi.getModels(makeId, year);
+    return _parseResponse(response);
+  }
+
+  List<VehicleModel> _parseResponse(dynamic response) {
     final data = response.data as Map<String, dynamic>;
     final List<dynamic> vehicleModelsList = data['data'];
     return vehicleModelsList

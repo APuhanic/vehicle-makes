@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:vehicle_makes/data/api_clients/dio_client.dart';
 import 'package:vehicle_makes/data/constants/endpoints.dart';
 
+// TODO: Split into api for each entity?
 @lazySingleton
 class CarApi {
   CarApi(this._dioClient);
@@ -25,7 +26,7 @@ class CarApi {
     return _dioClient.get(Endpoints.makes);
   }
 
-  // Car API je limitiran, te neprihvaća JSON query zahtjeve točno, stoga je po
+  // Car API je limitiran i neprihvaća JSON query zahtjeve točno, stoga je po
   // potrebno napraviti workaround kako bi se dobili podaci koji su potrebni.
   // Trenutno je postavljeno da je godina proizvodnje 2015, te se ručno mijenja
   // tražena godina kroz interface
@@ -35,5 +36,13 @@ class CarApi {
       'year': year ?? 2015,
     };
     return _dioClient.get(Endpoints.models, queryParameters: queryParameters);
+  }
+
+  Future<Response> getTrims(makeModelId, int? year) async {
+    final queryParameters = {
+      'make_model_id': makeModelId,
+      'year': year ?? 2015,
+    };
+    return _dioClient.get(Endpoints.trims, queryParameters: queryParameters);
   }
 }

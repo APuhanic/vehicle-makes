@@ -31,7 +31,7 @@ class VehicleDetailsBloc extends Bloc<VehicleModelsEvent, VehicleDetailsState> {
         emit(VehicleDetailsState.loaded(vehicleModels));
       }
     } catch (e) {
-      throw Exception(e);
+      emit(VehicleDetailsState.error(e.toString()));
     }
   }
 
@@ -47,7 +47,7 @@ class VehicleDetailsBloc extends Bloc<VehicleModelsEvent, VehicleDetailsState> {
         emit(VehicleDetailsState.loaded(vehicleModels));
       }
     } catch (e) {
-      throw Exception(e);
+      emit(VehicleDetailsState.error(e.toString()));
     }
   }
 }

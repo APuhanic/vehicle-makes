@@ -5,6 +5,7 @@ import 'package:vehicle_makes/data/bloc/auth_bloc.dart';
 import 'package:vehicle_makes/data/constants/app_colors.dart';
 import 'package:vehicle_makes/data/router/router.dart';
 import 'package:vehicle_makes/di/dependency_injection.dart';
+import 'package:vehicle_makes/presentation/model_trim/bloc/model_trims_bloc.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/bloc/vehicle_details_bloc.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/cubit/filter_chip_cubit.dart';
 import 'package:vehicle_makes/presentation/vehicle_makes/bloc/vehicle_makes_bloc.dart';
@@ -27,6 +28,7 @@ class CarApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<VehicleMakesBloc>()),
         BlocProvider(create: (context) => getIt<VehicleDetailsBloc>()),
         BlocProvider(create: (context) => getIt<FilterChipCubit>()),
+        BlocProvider(create: (context) => getIt<ModelTrimsBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -50,10 +50,10 @@ class VehicleMakesScreen extends StatelessWidget {
                             loaded: (vehicleMakes) => VehicleMakesCardList(
                               vehicleMakes: vehicleMakes,
                             ),
-                            error: (message) => Center(
-                              child: Text(message),
+                            error: (message) => const Center(
+                              child: Text('There was an error fetching data'),
                             ),
-                            orElse: () => const Text('Error'),
+                            orElse: () => const SizedBox(),
                           ),
                         ],
                       ),
