@@ -11,5 +11,7 @@ class Endpoints {
 
   static const String trims = '/api/trims';
 
+  static const String trimBodies = '/api/bodies';
+
   static const String years = '/api/years';
 }

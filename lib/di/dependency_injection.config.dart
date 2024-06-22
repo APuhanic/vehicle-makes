@@ -16,17 +16,18 @@ import 'package:logger/logger.dart' as _i6;
 
 import '../data/api_clients/car_api.dart' as _i10;
 import '../data/api_clients/dio_client.dart' as _i8;
-import '../data/bloc/auth_bloc.dart' as _i17;
+import '../data/bloc/auth_bloc.dart' as _i18;
 import '../data/storage/secure_storage.dart' as _i9;
 import '../domain/bloc_observer/global_bloc_observer.dart' as _i7;
-import '../domain/modules/app_module.dart' as _i19;
+import '../domain/modules/app_module.dart' as _i20;
 import '../domain/repositories/auth_repository.dart' as _i14;
 import '../domain/repositories/model_trims_repository.dart' as _i13;
 import '../domain/repositories/vehicle_details_repository.dart' as _i11;
 import '../domain/repositories/vehicle_makes_repository.dart' as _i12;
-import '../presentation/model_trim/bloc/model_trims_bloc.dart' as _i16;
+import '../presentation/model_trims/bloc/model_trims_bloc.dart' as _i17;
+import '../presentation/trim_details/bloc/trim_details_bloc.dart' as _i16;
 import '../presentation/vehicle_make_details/bloc/vehicle_details_bloc.dart'
-    as _i18;
+    as _i19;
 import '../presentation/vehicle_make_details/cubit/filter_chip_cubit.dart'
     as _i3;
 import '../presentation/vehicle_makes/bloc/vehicle_makes_bloc.dart' as _i15;
@@ -63,16 +64,18 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i14.AuthRepository(carApi: gh<_i10.CarApi>()));
     gh.factory<_i15.VehicleMakesBloc>(
         () => _i15.VehicleMakesBloc(gh<_i12.VehicleMakesRepository>()));
-    gh.factory<_i16.ModelTrimsBloc>(
-        () => _i16.ModelTrimsBloc(gh<_i13.ModelTrimsRepository>()));
-    gh.factory<_i17.AuthBloc>(() => _i17.AuthBloc(
+    gh.factory<_i16.TrimDetailsBloc>(
+        () => _i16.TrimDetailsBloc(gh<_i13.ModelTrimsRepository>()));
+    gh.factory<_i17.ModelTrimsBloc>(
+        () => _i17.ModelTrimsBloc(gh<_i13.ModelTrimsRepository>()));
+    gh.factory<_i18.AuthBloc>(() => _i18.AuthBloc(
           gh<_i14.AuthRepository>(),
           gh<_i9.SecureStorage>(),
         ));
-    gh.factory<_i18.VehicleDetailsBloc>(
-        () => _i18.VehicleDetailsBloc(gh<_i11.VehicleDetailsRepository>()));
+    gh.factory<_i19.VehicleDetailsBloc>(
+        () => _i19.VehicleDetailsBloc(gh<_i11.VehicleDetailsRepository>()));
     return this;
   }
 }
 
-class _$AppMopule extends _i19.AppMopule {}
+class _$AppMopule extends _i20.AppMopule {}

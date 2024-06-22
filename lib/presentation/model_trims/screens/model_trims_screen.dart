@@ -4,8 +4,8 @@ import 'package:vehicle_makes/data/constants/app_colors.dart';
 import 'package:vehicle_makes/data/constants/text_styles.dart';
 import 'package:vehicle_makes/domain/domain_models/vehicle_model/vehicle_model.dart';
 import 'package:vehicle_makes/presentation/common/widgets/loading_indicator.dart';
-import 'package:vehicle_makes/presentation/model_trim/bloc/model_trims_bloc.dart';
-import 'package:vehicle_makes/presentation/model_trim/widgets/model_trims_list.dart';
+import 'package:vehicle_makes/presentation/model_trims/bloc/model_trims_bloc.dart';
+import 'package:vehicle_makes/presentation/model_trims/widgets/model_trims_list.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/cubit/filter_chip_cubit.dart';
 import 'package:vehicle_makes/presentation/vehicle_make_details/widgets/filter_chips.dart';
 
@@ -27,7 +27,6 @@ class ModelTrimsScreen extends StatelessWidget {
         listener: (context, state) {
           state.maybeWhen(
             selected: (selectedYear) {
-              debugPrint('Selected year: $selectedYear');
               context.read<ModelTrimsBloc>().add(
                   ModelTrimsEvent.filterModelTrims(
                       modelDetails.id, selectedYear));

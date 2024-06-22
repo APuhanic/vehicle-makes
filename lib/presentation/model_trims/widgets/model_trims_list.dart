@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_makes/domain/domain_models/model_trims/model_trims.dart';
-import 'package:vehicle_makes/presentation/model_trim/widgets/model_trim_card.dart';
+import 'package:vehicle_makes/presentation/model_trims/widgets/model_trim_card.dart';
 
 class ModelTrimsList extends StatelessWidget {
   const ModelTrimsList({

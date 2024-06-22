@@ -45,4 +45,12 @@ class CarApi {
     };
     return _dioClient.get(Endpoints.trims, queryParameters: queryParameters);
   }
+
+  Future<Response> getTrimBody(trimId, int? year) async {
+    final queryParameters = {
+      'make_model_trim_id': trimId,
+    };
+    return _dioClient.get(Endpoints.trimBodies,
+        queryParameters: queryParameters);
+  }
 }

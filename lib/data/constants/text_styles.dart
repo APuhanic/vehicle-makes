@@ -9,7 +9,7 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle textForm = const TextStyle(
+  static TextStyle grayText = const TextStyle(
     fontSize: 16,
     color: AppColors.grayText,
     fontWeight: FontWeight.w100,
@@ -42,5 +42,11 @@ class AppTextStyle {
   static TextStyle nameText = const TextStyle(
     fontSize: 16,
     color: AppColors.black,
+  );
+
+  static TextStyle vehicleData = const TextStyle(
+    fontSize: 14,
+    color: AppColors.black,
+    fontWeight: FontWeight.bold,
   );
 }

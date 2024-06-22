@@ -10,19 +10,19 @@ class VehicleMakesRepository {
 
   Future<List<VehicleMake>> getVehicleMakes() async {
     final response = await carApi.getMakes();
-    return _parseResponse(response);
+    final List<dynamic> vehicleMakesList = response.data['data'];
+    return vehicleMakesList
+        .map((vehicleMake) =>
+            VehicleMake.fromJson(vehicleMake as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<VehicleMake>> searchVehicleMakes(String query) async {
     final response = await carApi.getMakes(search: query);
-    return _parseResponse(response);
-  }
-
-  List<VehicleMake> _parseResponse(dynamic response) {
-    final data = response.data as Map<String, dynamic>;
-    final List<dynamic> vehicleMakesList = data['data'];
+    final List<dynamic> vehicleMakesList = response.data['data'];
     return vehicleMakesList
-        .map((vehicle) => VehicleMake.fromJson(vehicle as Map<String, dynamic>))
+        .map((vehicleMake) =>
+            VehicleMake.fromJson(vehicleMake as Map<String, dynamic>))
         .toList();
   }
 }
