@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicle_makes/data/constants/app_colors.dart';
+import 'package:vehicle_makes/data/constants/text_styles.dart';
 import 'package:vehicle_makes/domain/domain_models/model_trims/model_trims.dart';
 import 'package:vehicle_makes/domain/domain_models/trim_body/trim_body.dart';
 import 'package:vehicle_makes/presentation/common/widgets/loading_indicator.dart';
@@ -33,11 +34,17 @@ class TrimDetailsScreen extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    Center(child: Text(trimDetails.description)),
+                    Center(
+                      child: Text(
+                        trimDetails.description,
+                        style: AppTextStyle.nameText,
+                      ),
+                    ),
                     state.maybeWhen(
                       loaded: (trimBody) {
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16),
                           child: TrimDetails(trimBody: trimBody),
                         );
                       },
@@ -72,30 +79,67 @@ class TrimDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            const Text('Type'),
-            Expanded(child: Container()),
-            Text(trimBody.type ?? 'Unknown'),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            'Body',
+            style: AppTextStyle.titleSmall,
+          ),
         ),
-        Text(trimBody.doors?.toString() ?? 'Unknown'),
-        Text(trimBody.length ?? 'Unknown'),
-        Text(trimBody.width ?? 'Unknown'),
-        Text(trimBody.height ?? 'Unknown'),
-        Text(trimBody.seats?.toString() ?? 'Unknown'),
-        Text(trimBody.wheel_base?.toString() ?? 'Unknown'),
-        Text(trimBody.front_track ?? 'Unknown'),
-        Text(trimBody.rear_track ?? 'Unknown'),
-        Text(trimBody.ground_clearance ?? 'Unknown'),
-        Text(trimBody.cargo_capacity ?? 'Unknown'),
-        Text(trimBody.max_cargo_capacity ?? 'Unknown'),
-        Text(trimBody.curb_weight?.toString() ?? 'Unknown'),
-        Text(trimBody.gross_weight?.toString() ?? 'Unknown'),
-        Text(trimBody.max_payload?.toString() ?? 'Unknown'),
-        Text(trimBody.max_towing_capacity?.toString() ?? 'Unknown'),
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            children: [
+              _buildRow('Type', _formatValue(trimBody.type, '')),
+              _buildRow('Doors', _formatValue(trimBody.doors, '')),
+              _buildRow('Length', _formatValue(trimBody.length, '"')),
+              _buildRow('Width', _formatValue(trimBody.width, '"')),
+              _buildRow('Height', _formatValue(trimBody.height, '"')),
+              _buildRow('Seats', _formatValue(trimBody.seats, '')),
+              _buildRow('Wheel Base', _formatValue(trimBody.wheel_base, '"')),
+              _buildRow('Front Track', _formatValue(trimBody.front_track, '')),
+              _buildRow('Rear Track', _formatValue(trimBody.rear_track, '')),
+              _buildRow('Ground Clearance',
+                  _formatValue(trimBody.ground_clearance, '"')),
+              _buildRow(
+                  'Cargo Capacity', _formatValue(trimBody.cargo_capacity, '')),
+              _buildRow('Max Cargo Capacity',
+                  _formatValue(trimBody.max_cargo_capacity, '')),
+              _buildRow(
+                  'Curb Weight', _formatValue(trimBody.curb_weight, 'lbs')),
+              _buildRow(
+                  'Gross Weight', _formatValue(trimBody.gross_weight, 'lbs')),
+              _buildRow(
+                  'Max Payload', _formatValue(trimBody.max_payload, 'lbs')),
+              _buildRow('Max Towing Capacity',
+                  _formatValue(trimBody.max_towing_capacity, 'lbs')),
+            ],
+          ),
+        ),
       ],
+    );
+  }
+
+  String _formatValue(dynamic value, String unit) {
+    return value != null ? '$value $unit' : 'Unknown';
+  }
+
+  Widget _buildRow(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      child: Row(
+        children: [
+          Text(title, style: AppTextStyle.lightText),
+          Expanded(child: Container()),
+          Text(value, style: AppTextStyle.vehicleData),
+        ],
+      ),
     );
   }
 }

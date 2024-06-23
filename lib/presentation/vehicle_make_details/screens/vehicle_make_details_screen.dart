@@ -26,7 +26,6 @@ class VehicleMakeDetailsScreen extends StatelessWidget {
         listener: (context, state) {
           state.maybeWhen(
             selected: (selectedYear) {
-              debugPrint('Selected year: $selectedYear');
               context.read<VehicleDetailsBloc>().add(
                   VehicleModelsEvent.filterVehicleModels(
                       makeDetails.id, selectedYear));

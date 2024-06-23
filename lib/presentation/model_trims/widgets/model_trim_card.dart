@@ -38,15 +38,15 @@ class ModelTrimCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(modelTrim.description),
             ),
-            _TrimInfoRow(
+            _buildTrimInfoRow(
               'Invoice',
               '${modelTrim.invoice} \$',
             ),
-            _TrimInfoRow(
+            _buildTrimInfoRow(
               'Retail Price',
               "${modelTrim.msrp} \$",
             ),
-            _TrimInfoRow(
+            _buildTrimInfoRow(
               'Year',
               '${modelTrim.year}',
             ),
@@ -55,25 +55,17 @@ class ModelTrimCard extends StatelessWidget {
       ),
     );
   }
-}
 
-class _TrimInfoRow extends StatelessWidget {
-  const _TrimInfoRow(this.rowInfoTitle, this.rowData);
-
-  final String rowInfoTitle;
-  final String rowData;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildTrimInfoRow(String title, String value) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          rowInfoTitle,
-          style: AppTextStyle.grayText,
+          title,
+          style: AppTextStyle.lightText,
         ),
-        Expanded(child: Container()),
         Text(
-          rowData,
+          value,
           style: AppTextStyle.vehicleData,
         ),
       ],

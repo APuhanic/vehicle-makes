@@ -21,11 +21,11 @@ import '../data/storage/secure_storage.dart' as _i9;
 import '../domain/bloc_observer/global_bloc_observer.dart' as _i7;
 import '../domain/modules/app_module.dart' as _i20;
 import '../domain/repositories/auth_repository.dart' as _i14;
-import '../domain/repositories/model_trims_repository.dart' as _i13;
-import '../domain/repositories/vehicle_details_repository.dart' as _i11;
-import '../domain/repositories/vehicle_makes_repository.dart' as _i12;
-import '../presentation/model_trims/bloc/model_trims_bloc.dart' as _i17;
-import '../presentation/trim_details/bloc/trim_details_bloc.dart' as _i16;
+import '../domain/repositories/model_trims_repository.dart' as _i11;
+import '../domain/repositories/vehicle_details_repository.dart' as _i12;
+import '../domain/repositories/vehicle_makes_repository.dart' as _i13;
+import '../presentation/model_trims/bloc/model_trims_bloc.dart' as _i16;
+import '../presentation/trim_details/bloc/trim_details_bloc.dart' as _i17;
 import '../presentation/vehicle_make_details/bloc/vehicle_details_bloc.dart'
     as _i19;
 import '../presentation/vehicle_make_details/cubit/filter_chip_cubit.dart'
@@ -54,26 +54,26 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i9.SecureStorage>(
         () => _i9.SecureStorage(gh<_i5.FlutterSecureStorage>()));
     gh.lazySingleton<_i10.CarApi>(() => _i10.CarApi(gh<_i8.DioClient>()));
-    gh.lazySingleton<_i11.VehicleDetailsRepository>(
-        () => _i11.VehicleDetailsRepository(carApi: gh<_i10.CarApi>()));
-    gh.lazySingleton<_i12.VehicleMakesRepository>(
-        () => _i12.VehicleMakesRepository(carApi: gh<_i10.CarApi>()));
-    gh.lazySingleton<_i13.ModelTrimsRepository>(
-        () => _i13.ModelTrimsRepository(carApi: gh<_i10.CarApi>()));
+    gh.lazySingleton<_i11.ModelTrimsRepository>(
+        () => _i11.ModelTrimsRepository(carApi: gh<_i10.CarApi>()));
+    gh.lazySingleton<_i12.VehicleDetailsRepository>(
+        () => _i12.VehicleDetailsRepository(carApi: gh<_i10.CarApi>()));
+    gh.lazySingleton<_i13.VehicleMakesRepository>(
+        () => _i13.VehicleMakesRepository(carApi: gh<_i10.CarApi>()));
     gh.singleton<_i14.AuthRepository>(
         () => _i14.AuthRepository(carApi: gh<_i10.CarApi>()));
     gh.factory<_i15.VehicleMakesBloc>(
-        () => _i15.VehicleMakesBloc(gh<_i12.VehicleMakesRepository>()));
-    gh.factory<_i16.TrimDetailsBloc>(
-        () => _i16.TrimDetailsBloc(gh<_i13.ModelTrimsRepository>()));
-    gh.factory<_i17.ModelTrimsBloc>(
-        () => _i17.ModelTrimsBloc(gh<_i13.ModelTrimsRepository>()));
+        () => _i15.VehicleMakesBloc(gh<_i13.VehicleMakesRepository>()));
+    gh.factory<_i16.ModelTrimsBloc>(
+        () => _i16.ModelTrimsBloc(gh<_i11.ModelTrimsRepository>()));
+    gh.factory<_i17.TrimDetailsBloc>(
+        () => _i17.TrimDetailsBloc(gh<_i11.ModelTrimsRepository>()));
     gh.factory<_i18.AuthBloc>(() => _i18.AuthBloc(
           gh<_i14.AuthRepository>(),
           gh<_i9.SecureStorage>(),
         ));
     gh.factory<_i19.VehicleDetailsBloc>(
-        () => _i19.VehicleDetailsBloc(gh<_i11.VehicleDetailsRepository>()));
+        () => _i19.VehicleDetailsBloc(gh<_i12.VehicleDetailsRepository>()));
     return this;
   }
 }

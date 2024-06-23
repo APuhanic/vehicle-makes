@@ -20,18 +20,21 @@ mixin _$VehicleMakesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchVehicleMakes,
     required TResult Function(String query) filterVehicleMakes,
+    required TResult Function(String type) sortVehicleMakes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchVehicleMakes,
     TResult? Function(String query)? filterVehicleMakes,
+    TResult? Function(String type)? sortVehicleMakes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchVehicleMakes,
     TResult Function(String query)? filterVehicleMakes,
+    TResult Function(String type)? sortVehicleMakes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$VehicleMakesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchVehicleMakes value) fetchVehicleMakes,
     required TResult Function(_FilterVehicleMakes value) filterVehicleMakes,
+    required TResult Function(_SortVehicleMakes value) sortVehicleMakes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult? Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult? Function(_SortVehicleMakes value)? sortVehicleMakes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult Function(_SortVehicleMakes value)? sortVehicleMakes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchVehicleMakes,
     required TResult Function(String query) filterVehicleMakes,
+    required TResult Function(String type) sortVehicleMakes,
   }) {
     return fetchVehicleMakes();
   }
@@ -123,6 +130,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchVehicleMakes,
     TResult? Function(String query)? filterVehicleMakes,
+    TResult? Function(String type)? sortVehicleMakes,
   }) {
     return fetchVehicleMakes?.call();
   }
@@ -132,6 +140,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchVehicleMakes,
     TResult Function(String query)? filterVehicleMakes,
+    TResult Function(String type)? sortVehicleMakes,
     required TResult orElse(),
   }) {
     if (fetchVehicleMakes != null) {
@@ -145,6 +154,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchVehicleMakes value) fetchVehicleMakes,
     required TResult Function(_FilterVehicleMakes value) filterVehicleMakes,
+    required TResult Function(_SortVehicleMakes value) sortVehicleMakes,
   }) {
     return fetchVehicleMakes(this);
   }
@@ -154,6 +164,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult? Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult? Function(_SortVehicleMakes value)? sortVehicleMakes,
   }) {
     return fetchVehicleMakes?.call(this);
   }
@@ -163,6 +174,7 @@ class _$FetchVehicleMakesImpl implements _FetchVehicleMakes {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult Function(_SortVehicleMakes value)? sortVehicleMakes,
     required TResult orElse(),
   }) {
     if (fetchVehicleMakes != null) {
@@ -243,6 +255,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult when<TResult extends Object?>({
     required TResult Function() fetchVehicleMakes,
     required TResult Function(String query) filterVehicleMakes,
+    required TResult Function(String type) sortVehicleMakes,
   }) {
     return filterVehicleMakes(query);
   }
@@ -252,6 +265,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchVehicleMakes,
     TResult? Function(String query)? filterVehicleMakes,
+    TResult? Function(String type)? sortVehicleMakes,
   }) {
     return filterVehicleMakes?.call(query);
   }
@@ -261,6 +275,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchVehicleMakes,
     TResult Function(String query)? filterVehicleMakes,
+    TResult Function(String type)? sortVehicleMakes,
     required TResult orElse(),
   }) {
     if (filterVehicleMakes != null) {
@@ -274,6 +289,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchVehicleMakes value) fetchVehicleMakes,
     required TResult Function(_FilterVehicleMakes value) filterVehicleMakes,
+    required TResult Function(_SortVehicleMakes value) sortVehicleMakes,
   }) {
     return filterVehicleMakes(this);
   }
@@ -283,6 +299,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult? Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult? Function(_SortVehicleMakes value)? sortVehicleMakes,
   }) {
     return filterVehicleMakes?.call(this);
   }
@@ -292,6 +309,7 @@ class _$FilterVehicleMakesImpl implements _FilterVehicleMakes {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchVehicleMakes value)? fetchVehicleMakes,
     TResult Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult Function(_SortVehicleMakes value)? sortVehicleMakes,
     required TResult orElse(),
   }) {
     if (filterVehicleMakes != null) {
@@ -308,6 +326,146 @@ abstract class _FilterVehicleMakes implements VehicleMakesEvent {
   String get query;
   @JsonKey(ignore: true)
   _$$FilterVehicleMakesImplCopyWith<_$FilterVehicleMakesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SortVehicleMakesImplCopyWith<$Res> {
+  factory _$$SortVehicleMakesImplCopyWith(_$SortVehicleMakesImpl value,
+          $Res Function(_$SortVehicleMakesImpl) then) =
+      __$$SortVehicleMakesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String type});
+}
+
+/// @nodoc
+class __$$SortVehicleMakesImplCopyWithImpl<$Res>
+    extends _$VehicleMakesEventCopyWithImpl<$Res, _$SortVehicleMakesImpl>
+    implements _$$SortVehicleMakesImplCopyWith<$Res> {
+  __$$SortVehicleMakesImplCopyWithImpl(_$SortVehicleMakesImpl _value,
+      $Res Function(_$SortVehicleMakesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_$SortVehicleMakesImpl(
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SortVehicleMakesImpl implements _SortVehicleMakes {
+  const _$SortVehicleMakesImpl(this.type);
+
+  @override
+  final String type;
+
+  @override
+  String toString() {
+    return 'VehicleMakesEvent.sortVehicleMakes(type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SortVehicleMakesImpl &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SortVehicleMakesImplCopyWith<_$SortVehicleMakesImpl> get copyWith =>
+      __$$SortVehicleMakesImplCopyWithImpl<_$SortVehicleMakesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchVehicleMakes,
+    required TResult Function(String query) filterVehicleMakes,
+    required TResult Function(String type) sortVehicleMakes,
+  }) {
+    return sortVehicleMakes(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchVehicleMakes,
+    TResult? Function(String query)? filterVehicleMakes,
+    TResult? Function(String type)? sortVehicleMakes,
+  }) {
+    return sortVehicleMakes?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchVehicleMakes,
+    TResult Function(String query)? filterVehicleMakes,
+    TResult Function(String type)? sortVehicleMakes,
+    required TResult orElse(),
+  }) {
+    if (sortVehicleMakes != null) {
+      return sortVehicleMakes(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchVehicleMakes value) fetchVehicleMakes,
+    required TResult Function(_FilterVehicleMakes value) filterVehicleMakes,
+    required TResult Function(_SortVehicleMakes value) sortVehicleMakes,
+  }) {
+    return sortVehicleMakes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchVehicleMakes value)? fetchVehicleMakes,
+    TResult? Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult? Function(_SortVehicleMakes value)? sortVehicleMakes,
+  }) {
+    return sortVehicleMakes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchVehicleMakes value)? fetchVehicleMakes,
+    TResult Function(_FilterVehicleMakes value)? filterVehicleMakes,
+    TResult Function(_SortVehicleMakes value)? sortVehicleMakes,
+    required TResult orElse(),
+  }) {
+    if (sortVehicleMakes != null) {
+      return sortVehicleMakes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SortVehicleMakes implements VehicleMakesEvent {
+  const factory _SortVehicleMakes(final String type) = _$SortVehicleMakesImpl;
+
+  String get type;
+  @JsonKey(ignore: true)
+  _$$SortVehicleMakesImplCopyWith<_$SortVehicleMakesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

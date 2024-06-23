@@ -27,7 +27,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       storage.writeSecureData('token', token);
       emit(const AuthState.authenticated());
     } catch (e) {
-      debugPrint(e.toString());
       emit(AuthState.error(e.toString()));
     }
   }

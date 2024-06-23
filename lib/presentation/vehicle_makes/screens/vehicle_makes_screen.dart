@@ -15,22 +15,24 @@ class VehicleMakesScreen extends StatelessWidget {
     context
         .read<VehicleMakesBloc>()
         .add(const VehicleMakesEvent.fetchVehicleMakes());
-
     return Scaffold(
       body: BlocBuilder<VehicleMakesBloc, VehicleMakesState>(
         builder: (context, state) {
           return CustomScrollView(
             slivers: [
               SliverAppBar(
-                expandedHeight: 40,
+                expandedHeight: 45,
                 pinned: true,
                 backgroundColor: AppColors.background,
                 shadowColor: Colors.transparent,
                 surfaceTintColor: AppColors.background,
                 title: const Text('Vehicle Makes'),
                 actions: [
+                  const _SortButton(),
                   IconButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        await Future.delayed(const Duration(milliseconds: 150));
+                        if (!context.mounted) return;
                         Navigator.of(context).pushNamed('/vehicleSearch');
                       },
                       icon: const Icon(Icons.search))
@@ -66,5 +68,35 @@ class VehicleMakesScreen extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class _SortButton extends StatelessWidget {
+  const _SortButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton(
+        dropdownColor: AppColors.background,
+        elevation: 1,
+        underline: const SizedBox(),
+        borderRadius: BorderRadius.circular(8),
+        onChanged: (String? value) {
+          context
+              .read<VehicleMakesBloc>()
+              .add(VehicleMakesEvent.sortVehicleMakes(value ?? 'ascending'));
+        },
+        items: const [
+          DropdownMenuItem(
+            value: 'ascending',
+            child: Text('A-Z'),
+          ),
+          DropdownMenuItem(
+            value: 'descending',
+            child: Text('Z-A'),
+          ),
+        ],
+        icon:
+            const Icon(Icons.sort_by_alpha_rounded, color: AppColors.primary));
   }
 }

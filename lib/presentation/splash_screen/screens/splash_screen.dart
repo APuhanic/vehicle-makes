@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vehicle_makes/data/bloc/auth_bloc.dart';
+import 'package:vehicle_makes/data/constants/app_colors.dart';
+import 'package:vehicle_makes/data/constants/text_styles.dart';
 import 'package:vehicle_makes/presentation/common/widgets/loading_indicator.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -16,14 +18,34 @@ class SplashScreen extends StatelessWidget {
         if (state is Authenticated) {
           Navigator.of(context).pushReplacementNamed('/vehicleMakes');
         }
-        // TODO: Implement login error handling
       },
       builder: (context, state) {
-        return const Scaffold(
-          body: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Center(
-              child: LoadingIndicator(),
+        return Scaffold(
+          body: state.maybeWhen(
+            orElse: () {
+              return null;
+            },
+            loading: () => const Center(child: LoadingIndicator()),
+            error: (message) => Center(
+              child: FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: AppColors.background,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  side: const BorderSide(
+                    color: AppColors.primary,
+                    width: 1,
+                  ),
+                ),
+                onPressed: () {
+                  context.read<AuthBloc>().add(const AuthEvent.login());
+                },
+                child: Text(
+                  'There was an error, try again',
+                  style: AppTextStyle.lightText,
+                ),
+              ),
             ),
           ),
         );

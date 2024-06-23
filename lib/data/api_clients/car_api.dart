@@ -3,7 +3,6 @@ import 'package:injectable/injectable.dart';
 import 'package:vehicle_makes/data/api_clients/dio_client.dart';
 import 'package:vehicle_makes/data/constants/endpoints.dart';
 
-// TODO: Split into api for each entity?
 @lazySingleton
 class CarApi {
   CarApi(this._dioClient);
