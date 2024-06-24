@@ -36,7 +36,7 @@ class ModelTrimCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(modelTrim.description),
+              child: FittedBox(child: Text(modelTrim.description)),
             ),
             _buildTrimInfoRow(
               'Invoice',

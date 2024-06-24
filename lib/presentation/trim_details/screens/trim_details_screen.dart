@@ -35,9 +35,14 @@ class TrimDetailsScreen extends StatelessWidget {
                 delegate: SliverChildListDelegate(
                   [
                     Center(
-                      child: Text(
-                        trimDetails.description,
-                        style: AppTextStyle.nameText,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: FittedBox(
+                          child: Text(
+                            trimDetails.description,
+                            style: AppTextStyle.nameText,
+                          ),
+                        ),
                       ),
                     ),
                     state.maybeWhen(

@@ -19,9 +19,9 @@ class CarApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.background,
       statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: AppColors.white,
+      systemNavigationBarColor: AppColors.background,
       systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarDividerColor: AppColors.white,
+      systemNavigationBarDividerColor: AppColors.background,
     ));
     return MultiBlocProvider(
       providers: [

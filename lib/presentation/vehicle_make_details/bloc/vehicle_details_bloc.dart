@@ -35,7 +35,7 @@ class VehicleDetailsBloc extends Bloc<VehicleModelsEvent, VehicleDetailsState> {
     }
   }
 
-  Future<FutureOr<void>> _onFilterVehicleModels(
+  Future<void> _onFilterVehicleModels(
       _FilterVehicleModels event, Emitter<VehicleDetailsState> emit) async {
     emit(const VehicleDetailsState.loading());
     try {

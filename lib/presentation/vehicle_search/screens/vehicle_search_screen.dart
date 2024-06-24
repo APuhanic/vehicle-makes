@@ -17,48 +17,52 @@ class VehicleSearchScreen extends StatelessWidget {
       onPopInvoked: (didPop) => context
           .read<VehicleMakesBloc>()
           .add(const VehicleMakesEvent.fetchVehicleMakes()),
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 40,
-              pinned: true,
-              backgroundColor: AppColors.background,
-              shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
-              title: const CarSearchBar(),
-              leading: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(Icons.arrow_back),
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          body: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                expandedHeight: 40,
+                pinned: true,
+                backgroundColor: AppColors.background,
+                shadowColor: Colors.transparent,
+                surfaceTintColor: AppColors.background,
+                title: const CarSearchBar(),
+                leading: IconButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(Icons.arrow_back),
+                ),
               ),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        BlocBuilder<VehicleMakesBloc, VehicleMakesState>(
-                          builder: (context, state) {
-                            return state.maybeWhen(
-                                loading: () => const Center(
-                                      child: LoadingIndicator(),
-                                    ),
-                                loaded: (vehicleMakes) => VehicleMakesCardList(
-                                    vehicleMakes: vehicleMakes),
-                                empty: () =>
-                                    const Text('No vehicle makes found'),
-                                orElse: () => const Text('Error'));
-                          },
-                        ),
-                      ],
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          BlocBuilder<VehicleMakesBloc, VehicleMakesState>(
+                            builder: (context, state) {
+                              return state.maybeWhen(
+                                  loading: () => const Center(
+                                        child: LoadingIndicator(),
+                                      ),
+                                  loaded: (vehicleMakes) =>
+                                      VehicleMakesCardList(
+                                          vehicleMakes: vehicleMakes),
+                                  empty: () =>
+                                      const Text('No vehicle makes found'),
+                                  orElse: () => const Text('Error'));
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -5,21 +5,27 @@ import 'package:logger/logger.dart';
 
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:vehicle_makes/data/constants/endpoints.dart';
+import 'package:vehicle_makes/data/interceptors/auth_interceptor.dart';
 
 @module
 abstract class AppMopule {
   @singleton
-  Dio get dio => Dio(
-        BaseOptions(baseUrl: Endpoints.baseUrl),
-      )..interceptors.add(
-          PrettyDioLogger(
-            error: true,
-            compact: true,
-            maxWidth: 90,
-          ),
-        );
+  Dio dio(AuthInterceptor authInterceptor) {
+    final dio = Dio(BaseOptions(baseUrl: Endpoints.baseUrl));
+    dio.interceptors.add(authInterceptor);
+    dio.interceptors.add(
+      PrettyDioLogger(
+        error: true,
+        compact: true,
+        maxWidth: 90,
+      ),
+    );
+    return dio;
+  }
+
   @singleton
   FlutterSecureStorage get storage => const FlutterSecureStorage();
+
   @lazySingleton
   Logger get logger => Logger(
         printer: PrettyPrinter(

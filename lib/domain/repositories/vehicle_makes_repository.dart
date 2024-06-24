@@ -8,16 +8,7 @@ class VehicleMakesRepository {
 
   VehicleMakesRepository({required this.carApi});
 
-  Future<List<VehicleMake>> getVehicleMakes() async {
-    final response = await carApi.getMakes();
-    final List<dynamic> vehicleMakesList = response.data['data'];
-    return vehicleMakesList
-        .map((vehicleMake) =>
-            VehicleMake.fromJson(vehicleMake as Map<String, dynamic>))
-        .toList();
-  }
-
-  Future<List<VehicleMake>> searchVehicleMakes(String query) async {
+  Future<List<VehicleMake>> getVehicleMakes({String? query}) async {
     final response = await carApi.getMakes(search: query);
     final List<dynamic> vehicleMakesList = response.data['data'];
     return vehicleMakesList

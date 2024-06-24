@@ -13,9 +13,7 @@ class CarSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final debouncer = Debouncer(milliseconds: 500);
     return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Row(
         children: [
           Expanded(

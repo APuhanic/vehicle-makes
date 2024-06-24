@@ -10,20 +10,15 @@ class ModelTrimsRepository {
 
   Future<List<ModelTrim>> getModelTrims(int modelId, {int? year}) async {
     final response = await carApi.getTrims(modelId, year);
-    return _parseResponse(response);
+    final List<ModelTrim> modelTrims = response.data['data']
+        .map<ModelTrim>((modelTrim) => ModelTrim.fromJson(modelTrim))
+        .toList();
+    return modelTrims;
   }
 
   Future<TrimBody> getTrimBody(int trimId, {int? year}) async {
     final response = await carApi.getTrimBody(trimId, year);
     final trimBody = response.data['data'];
     return TrimBody.fromJson(trimBody[0] as Map<String, dynamic>);
-  }
-
-  List<ModelTrim> _parseResponse(dynamic response) {
-    final data = response.data as Map<String, dynamic>;
-    final List<dynamic> modelTrimsList = data['data'];
-    return modelTrimsList
-        .map((model) => ModelTrim.fromJson(model as Map<String, dynamic>))
-        .toList();
   }
 }

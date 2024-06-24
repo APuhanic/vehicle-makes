@@ -37,7 +37,7 @@ class VehicleMakesBloc extends Bloc<VehicleMakesEvent, VehicleMakesState> {
     try {
       emit(const VehicleMakesState.loading());
       final vehicleMakes =
-          await _vehicleMakesRepository.searchVehicleMakes(event.query);
+          await _vehicleMakesRepository.getVehicleMakes(query: event.query);
       emit(VehicleMakesState.loaded(vehicleMakes));
     } catch (e) {
       emit(VehicleMakesState.error(e.toString()));

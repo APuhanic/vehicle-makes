@@ -25,9 +25,11 @@ class ModelCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Center(
-          child: Text(
-            vehicleModel.name,
-            style: AppTextStyle.titleSmall,
+          child: FittedBox(
+            child: Text(
+              vehicleModel.name,
+              style: AppTextStyle.titleSmall,
+            ),
           ),
         ),
       ),

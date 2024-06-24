@@ -1,12 +1,18 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+import 'package:vehicle_makes/data/storage/secure_storage.dart';
 
+@singleton
 class AuthInterceptor extends Interceptor {
-  AuthInterceptor(this.bearerToken);
-  final String bearerToken;
+  final SecureStorage secureStorage;
+
+  AuthInterceptor(this.secureStorage);
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers['Authorization'] = 'Bearer $bearerToken';
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    final token = await secureStorage.readSecureData('token');
+    options.headers['Authorization'] = 'Bearer $token';
     super.onRequest(options, handler);
   }
 }
